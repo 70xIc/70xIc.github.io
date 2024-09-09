@@ -43,15 +43,25 @@
             border-radius: 50%;
             overflow: hidden;
             margin: 20px auto;
-            border: 5px solid #000; /* Black border with increased thickness */
+            border: 5px solid #00ff00; /* Light green border */
             position: relative;
-            animation: glitch 1.5s infinite;
+            animation: none; /* Remove glitch animation */
         }
 
         .profile-pic img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            animation: fadeInOut 3s infinite; /* Fade in and out */
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
         }
 
         .discord-name {
@@ -65,11 +75,11 @@
             display: inline-block;
             width: 60px;
             height: 60px;
-            background-color: #333; /* Dark gray background */
+            background-color: #fff; /* White background */
             border-radius: 50%;
             text-align: center;
             line-height: 60px;
-            color: #fff;
+            color: #333;
             font-size: 1.2rem;
             text-decoration: none;
             position: relative;
@@ -77,11 +87,12 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
+            border: 4px solid #000; /* Black border with increased thickness */
         }
 
         .hidden-link:hover {
-            background-color: #333; /* Keep hover color same as normal color */
-            color: #fff;
+            background-color: #fff; /* Keep hover color same as normal color */
+            color: #333;
         }
 
         @keyframes glitch {
@@ -141,7 +152,7 @@
         // JavaScript to add glitch effect to profile picture
         function addGlitchEffect() {
             const profilePic = document.getElementById('profilePic');
-            profilePic.style.animation = 'glitch 1.5s infinite';
+            profilePic.style.animation = 'fadeInOut 3s infinite';
         }
 
         // Apply glitch effect on page load
@@ -152,3 +163,4 @@
 
 </body>
 </html>
+
