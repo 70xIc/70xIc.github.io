@@ -32,7 +32,7 @@
         h1 {
             font-size: 5rem;
             margin-bottom: 10px;
-            color: #0f0; /* T0xic color remains green */
+            color: #0f0; /* Set color for T0xic */
             text-shadow: 0px 0px 10px #0f0, 0px 0px 20px #0f0;
         }
 
@@ -42,7 +42,7 @@
             border-radius: 50%;
             overflow: hidden;
             margin: 20px auto;
-            border: 3px solid #0f0; /* Border color */
+            border: 3px solid #0f0; /* Set border color */
             position: relative;
             animation: glitch 1.5s infinite;
         }
@@ -51,7 +51,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            animation: img-glitch 1.5s infinite;
         }
 
         .discord-name {
@@ -65,7 +64,7 @@
             display: inline-block;
             width: 60px;
             height: 60px;
-            background-color: #0f0; /* Fixed background color */
+            background-color: #0f0; /* Set background color */
             border-radius: 50%;
             text-align: center;
             line-height: 60px;
@@ -74,10 +73,6 @@
             text-decoration: none;
             transition: background-color 0.3s ease;
             position: relative;
-            background-image: url('hack-icon.png'); /* New icon for THM */
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
         }
 
         .hidden-link:hover {
@@ -121,39 +116,6 @@
             }
         }
 
-        @keyframes img-glitch {
-            0% {
-                clip-path: inset(0 0 0 0);
-                transform: translateX(0);
-                filter: brightness(100%) contrast(100%);
-            }
-            10% {
-                clip-path: inset(10% 0 0 0);
-                transform: translateX(-10px);
-                filter: brightness(120%) contrast(120%);
-            }
-            20% {
-                clip-path: inset(0 0 10% 0);
-                transform: translateX(10px);
-                filter: brightness(80%) contrast(80%);
-            }
-            30% {
-                clip-path: inset(10% 0 10% 0);
-                transform: translateX(-10px);
-                filter: brightness(120%) contrast(120%);
-            }
-            40% {
-                clip-path: inset(0 0 0 0);
-                transform: translateX(0);
-                filter: brightness(100%) contrast(100%);
-            }
-            100% {
-                clip-path: inset(0 0 0 0);
-                transform: translateX(0);
-                filter: brightness(100%) contrast(100%);
-            }
-        }
-
     </style>
 </head>
 <body>
@@ -171,7 +133,7 @@
         <p class="discord-name"><i>Loxic#6170</i></p>
 
         <!-- Versteckter Link zu TryHackMe -->
-        <a href="https://tryhackme.com/p/1xIXT0xicXIx0" class="hidden-link"></a>
+        <a href="https://tryhackme.com/p/1xIXT0xicXIx0" class="hidden-link">THM</a>
     </div>
 
 </body>
