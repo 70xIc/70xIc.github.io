@@ -5,103 +5,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>T0xic's Page</title>
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-            background: black;
-            color: white;
-            font-family: 'Share Tech Mono', monospace;
-            margin: 0;
+            background: url('hintergrund.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #0f0;
+            font-family: 'Courier New', Courier, monospace;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             overflow: hidden;
         }
 
-        .info {
+        .container {
             text-align: center;
         }
 
-        .info a {
-            color: white;
-            text-decoration: none;
-        }
-
-        svg {
-            width: 600px;
-            height: 120px;
-            display: block;
-            position: relative;
-            overflow: hidden;
-            margin: 0 auto;
-            background: black;
-        }
-
-        .glitch {
-            color: white;
-            font-size: 4em;
-            font-weight: bold;
-            text-transform: uppercase;
+        h1 {
+            font-size: 5rem;
+            margin-bottom: 10px;
+            color: #0f0; /* T0xic color remains green */
+            text-shadow: 0px 0px 10px #0f0, 0px 0px 20px #0f0;
             position: relative;
             display: inline-block;
+            animation: glitch 1.5s infinite;
         }
 
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            left: 0;
-            top: 0;
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 20px auto;
+            border: 5px solid #000; /* Black border with increased thickness */
+            position: relative;
+            animation: glitch 1.5s infinite;
+        }
+
+        .profile-pic img {
             width: 100%;
             height: 100%;
-            overflow: hidden;
-            color: white;
-            background: black;
-            clip-path: inset(0 0 0 0);
-            z-index: -1;
-            animation: noise 1.5s infinite linear alternate-reverse;
+            object-fit: cover;
         }
 
-        .glitch::before {
-            text-shadow: -1px 0 red;
-            animation: glitch-1 3s infinite linear alternate-reverse;
+        .discord-name {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ff00ff;
+            text-shadow: 0px 0px 10px #ff00ff, 0px 0px 20px #ff00ff;
         }
 
-        .glitch::after {
-            text-shadow: 1px 0 blue;
-            animation: glitch-2 3s infinite linear alternate-reverse;
+        .hidden-link {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background-color: #333; /* Dark gray background */
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            position: relative;
+            background-image: url('TryHackMe.png'); /* New icon */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
-        @keyframes glitch-1 {
-            0% { transform: translate(-2px, -2px); }
-            25% { transform: translate(-2px, 2px); }
-            50% { transform: translate(2px, 2px); }
-            75% { transform: translate(2px, -2px); }
-            100% { transform: translate(0, 0); }
+        .hidden-link:hover {
+            background-color: #333; /* Keep hover color same as normal color */
+            color: #fff;
         }
 
-        @keyframes glitch-2 {
-            0% { transform: translate(2px, 2px); }
-            25% { transform: translate(2px, -2px); }
-            50% { transform: translate(-2px, -2px); }
-            75% { transform: translate(-2px, 2px); }
-            100% { transform: translate(0, 0); }
+        @keyframes glitch {
+            0% {
+                clip-path: inset(0 0 0 0);
+                transform: translateX(0);
+                filter: brightness(100%) contrast(100%);
+            }
+            10% {
+                clip-path: inset(10% 0 0 0);
+                transform: translateX(-10px);
+                filter: brightness(120%) contrast(120%);
+            }
+            20% {
+                clip-path: inset(0 0 10% 0);
+                transform: translateX(10px);
+                filter: brightness(80%) contrast(80%);
+            }
+            30% {
+                clip-path: inset(10% 0 10% 0);
+                transform: translateX(-10px);
+                filter: brightness(120%) contrast(120%);
+            }
+            40% {
+                clip-path: inset(0 0 0 0);
+                transform: translateX(0);
+                filter: brightness(100%) contrast(100%);
+            }
+            100% {
+                clip-path: inset(0 0 0 0);
+                transform: translateX(0);
+                filter: brightness(100%) contrast(100%);
+            }
         }
 
-        @keyframes noise {
-            0% { clip-path: inset(0 0 0 0); }
-            50% { clip-path: inset(10% 0 10% 0); }
-            100% { clip-path: inset(0 0 0 0); }
-        }
     </style>
 </head>
 <body>
-    <div class="info">
-        <svg class="glitch" data-text="T0xic">
-            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">T0xic</text>
-        </svg>
+
+    <div class="container">
+        <!-- Profilbild -->
+        <div class="profile-pic">
+            <img src="profilbild.jpg" alt="Profile Picture" id="profilePic">
+        </div>
+
+        <!-- Name -->
+        <h1>T0xic</h1>
+
+        <!-- Discord Name -->
+        <p class="discord-name"><i>Loxic#6170</i></p>
+
+        <!-- Versteckter Link zu TryHackMe -->
+        <a href="https://tryhackme.com/p/1xIXT0xicXIx0" class="hidden-link"></a>
     </div>
+
+    <script>
+        // JavaScript to add glitch effect to profile picture
+        function addGlitchEffect() {
+            const profilePic = document.getElementById('profilePic');
+            profilePic.style.animation = 'glitch 1.5s infinite';
+        }
+
+        // Apply glitch effect on page load
+        window.onload = function() {
+            addGlitchEffect();
+        };
+    </script>
+
 </body>
 </html>
-
