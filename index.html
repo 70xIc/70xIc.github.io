@@ -3,19 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T0xic</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>T0xic's Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: url('hintergrund.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #0f0;
+            font-family: 'Courier New', Courier, monospace;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            animation: bg-glitch 3s infinite;
+        }
+
+        .container {
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            font-size: 5rem;
+            margin-bottom: 10px;
+            text-shadow: 0px 0px 10px #0f0, 0px 0px 20px #0f0;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 20px auto;
+            border: 3px solid #0f0;
+            animation: profile-glitch 3s infinite;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .discord-name {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ff00ff;
+            text-shadow: 0px 0px 10px #ff00ff, 0px 0px 20px #ff00ff;
+        }
+
+        .hidden-link {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background-color: #0f0;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            color: #000;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            position: relative;
+        }
+
+        .hidden-link:hover {
+            background-color: #ff0000;
+            color: #fff;
+        }
+
+        @keyframes bg-glitch {
+            0%, 100% {
+                filter: hue-rotate(0deg);
+            }
+            50% {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        @keyframes profile-glitch {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            10%, 90% {
+                transform: translate(5px, -5px);
+            }
+            20%, 80% {
+                transform: translate(-5px, 5px);
+            }
+            30%, 70% {
+                transform: translate(10px, -10px);
+            }
+            40%, 60% {
+                transform: translate(-10px, 10px);
+            }
+            50% {
+                transform: translate(0, 0);
+            }
+        }
+
+    </style>
 </head>
 <body>
+
     <div class="container">
+        <!-- Profilbild -->
         <div class="profile-pic">
             <img src="profilbild.jpg" alt="Profile Picture">
         </div>
+
+        <!-- Name -->
         <h1>T0xic</h1>
-        <p class="discord-name"><em>Loxic#6170</em></p>
-        <a href="https://tryhackme.com/p/1xIXT0xicXIx0" class="hidden-link">TryHackMe</a>
+
+        <!-- Discord Name -->
+        <p class="discord-name"><i>Loxic#6170</i></p>
+
+        <!-- Versteckter Link zu TryHackMe -->
+        <a href="https://tryhackme.com/p/1xIXT0xicXIx0" class="hidden-link">THM</a>
     </div>
 
-    <script src="script.js"></script>
 </body>
 </html>
