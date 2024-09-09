@@ -12,7 +12,7 @@
         }
 
         body {
-            background: url('hintergrund.png') no-repeat center center fixed;
+            background: url('hintergrund.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #0f0;
             font-family: 'Courier New', Courier, monospace;
@@ -42,7 +42,6 @@
             overflow: hidden;
             margin: 20px auto;
             border: 3px solid #0f0;
-            animation: profile-glitch 3s infinite;
         }
 
         .profile-pic img {
@@ -83,27 +82,6 @@
             }
             50% {
                 filter: hue-rotate(360deg);
-            }
-        }
-
-        @keyframes profile-glitch {
-            0%, 100% {
-                transform: translate(0, 0);
-            }
-            10%, 90% {
-                transform: translate(5px, -5px);
-            }
-            20%, 80% {
-                transform: translate(-5px, 5px);
-            }
-            30%, 70% {
-                transform: translate(10px, -10px);
-            }
-            40%, 60% {
-                transform: translate(-10px, 10px);
-            }
-            50% {
-                transform: translate(0, 0);
             }
         }
 
