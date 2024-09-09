@@ -25,7 +25,6 @@
 
         .container {
             text-align: center;
-            backdrop-filter: blur(5px);
         }
 
         h1 {
@@ -43,6 +42,7 @@
             margin: 20px auto;
             border: 3px solid #0f0; /* Border color */
             position: relative;
+            animation: glitch 1.5s infinite;
         }
 
         .profile-pic img {
@@ -62,26 +62,26 @@
             display: inline-block;
             width: 60px;
             height: 60px;
-            background-color: #0f0; /* Fixed background color */
+            background-color: #333; /* Dark gray background */
             border-radius: 50%;
             text-align: center;
             line-height: 60px;
-            color: #000;
+            color: #fff;
             font-size: 1.2rem;
             text-decoration: none;
             position: relative;
-            background-image: url('TryHackMe.png'); /* New icon for THM */
+            background-image: url('TryHackMe.png'); /* New icon */
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
         }
 
         .hidden-link:hover {
-            background-color: #0f0; /* Keep hover color same as normal color */
-            color: #000;
+            background-color: #333; /* Keep hover color same as normal color */
+            color: #fff;
         }
 
-        @keyframes img-glitch {
+        @keyframes glitch {
             0% {
                 clip-path: inset(0 0 0 0);
                 transform: translateX(0);
@@ -138,7 +138,7 @@
         // JavaScript to add glitch effect to profile picture
         function addGlitchEffect() {
             const profilePic = document.getElementById('profilePic');
-            profilePic.style.animation = 'img-glitch 1.5s infinite';
+            profilePic.style.animation = 'glitch 1.5s infinite';
         }
 
         // Apply glitch effect on page load
