@@ -21,7 +21,6 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            animation: bg-glitch 3s infinite;
         }
 
         .container {
@@ -44,14 +43,12 @@
             margin: 20px auto;
             border: 3px solid #0f0; /* Border color */
             position: relative;
-            animation: glitch 1.5s infinite;
         }
 
         .profile-pic img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            animation: img-glitch 1.5s infinite;
         }
 
         .discord-name {
@@ -72,9 +69,8 @@
             color: #000;
             font-size: 1.2rem;
             text-decoration: none;
-            transition: background-color 0.3s ease;
             position: relative;
-            background-image: url('hack-icon.png'); /* New icon for THM */
+            background-image: url('TryHackMe.png'); /* New icon for THM */
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -83,42 +79,6 @@
         .hidden-link:hover {
             background-color: #0f0; /* Keep hover color same as normal color */
             color: #000;
-        }
-
-        @keyframes bg-glitch {
-            0%, 100% {
-                filter: hue-rotate(0deg);
-            }
-            50% {
-                filter: hue-rotate(360deg);
-            }
-        }
-
-        @keyframes glitch {
-            0% {
-                clip-path: inset(0 0 0 0);
-                transform: translateX(0);
-            }
-            10% {
-                clip-path: inset(10% 0 0 0);
-                transform: translateX(-10px);
-            }
-            20% {
-                clip-path: inset(0 0 10% 0);
-                transform: translateX(10px);
-            }
-            30% {
-                clip-path: inset(10% 0 10% 0);
-                transform: translateX(-10px);
-            }
-            40% {
-                clip-path: inset(0 0 0 0);
-                transform: translateX(0);
-            }
-            100% {
-                clip-path: inset(0 0 0 0);
-                transform: translateX(0);
-            }
         }
 
         @keyframes img-glitch {
@@ -161,7 +121,7 @@
     <div class="container">
         <!-- Profilbild -->
         <div class="profile-pic">
-            <img src="profilbild.jpg" alt="Profile Picture">
+            <img src="profilbild.jpg" alt="Profile Picture" id="profilePic">
         </div>
 
         <!-- Name -->
@@ -174,6 +134,18 @@
         <a href="https://tryhackme.com/p/1xIXT0xicXIx0" class="hidden-link"></a>
     </div>
 
+    <script>
+        // JavaScript to add glitch effect to profile picture
+        function addGlitchEffect() {
+            const profilePic = document.getElementById('profilePic');
+            profilePic.style.animation = 'img-glitch 1.5s infinite';
+        }
+
+        // Apply glitch effect on page load
+        window.onload = function() {
+            addGlitchEffect();
+        };
+    </script>
+
 </body>
 </html>
-
