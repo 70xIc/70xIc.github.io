@@ -77,12 +77,12 @@
             text-shadow: 0px 0px 10px rgba(200, 0, 200, 0.7), 0px 0px 20px rgba(200, 0, 200, 0.7);
         }
 
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
             margin-top: 30px;
-            max-width: 600px;
+            max-width: 400px;
             margin: 0 auto;
         }
 
@@ -90,7 +90,7 @@
             display: flex;
             align-items: center;
             background-color: rgba(0, 0, 0, 0.7);
-            border: 2px solid rgba(10, 150, 0, 0.7);
+            border: 2px solid rgba(10, 150, 0, 0);
             padding: 15px;
             border-radius: 10px;
             text-decoration: none;
@@ -100,39 +100,25 @@
         }
 
         .cool-link:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(10, 150, 0, 0.9);
-            border-color: rgba(200, 0, 200, 0.7);
+            background-color: rgba(10, 150, 0, 0.2);
+            border-color: rgba(10, 150, 0, 0.5);
+            transform: translateX(5px);
         }
 
-        .cool-link:hover::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                         rgba(10, 150, 0, 0) 0%, 
-                         rgba(10, 150, 0, 0.2) 50%, 
-                         rgba(10, 150, 0, 0) 100%);
-            animation: glimmer 1.5s infinite;
-        }
-
-        @keyframes glimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+        .cool-link:hover .link-icon {
+            transform: rotate(5deg) scale(1.1);
         }
 
         .link-icon {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             margin-right: 15px;
             flex-shrink: 0;
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
             filter: drop-shadow(0 0 5px rgba(10, 150, 0, 0.7));
+            transition: transform 0.3s ease;
         }
 
         .link-text {
@@ -147,15 +133,32 @@
             margin-bottom: 5px;
         }
 
+        .link-desc {
+            color: rgba(200, 200, 200, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .link-status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            color: rgba(200, 200, 200, 0.9);
+            background-color: rgba(10, 150, 0, 0.3);
+            margin-left: 10px;
+        }
+
         .link-arrow {
             color: rgba(200, 0, 200, 0.8);
             font-size: 1.5rem;
             margin-left: 10px;
-            transition: transform 0.3s ease;
+            opacity: 0;
+            transition: all 0.3s ease;
         }
 
         .cool-link:hover .link-arrow {
-            transform: translateX(5px);
+            opacity: 1;
+            transform: translateX(3px);
         }
 
         @keyframes glitch-effect {
@@ -206,24 +209,24 @@
         <!-- Discord Name -->
         <p class="discord-name"><i>Loxic#6170</i></p>
 
-        
-        <div class="links-grid">
+        <!-- Links in GitBook style -->
+        <div class="links-container">
             <!-- TryHackMe Link -->
-            <a href="https://tryhackme.com/p/0xT0x1c" class="link" rel="noopener noreferrer">
+            <a href="https://tryhackme.com/p/0xT0x1c" class="cool-link" rel="noopener noreferrer">
                 <div class="link-icon" style="background-image: url('TryHackMe.png');"></div>
                 <div class="link-text">
                     <div class="link-title">TryHackMe</div>
-                    <div>My challenge progress</div>
+                    <div class="link-desc">My challenge progress and rankings</div>
                 </div>
                 <div class="link-arrow">→</div>
             </a>
             
             <!-- HackTheBox Link -->
-            <a href="https://app.hackthebox.com/profile/2074212" class="link" rel="noopener noreferrer">
+            <a href="https://app.hackthebox.com/profile/2074212" class="cool-link" rel="noopener noreferrer">
                 <div class="link-icon" style="background-image: url('HTB.png');"></div>
                 <div class="link-text">
                     <div class="link-title">HackTheBox</div>
-                    <div>My hacking profile</div>
+                    <div class="link-desc">My penetration testing profile</div>
                 </div>
                 <div class="link-arrow">→</div>
             </a>
@@ -233,17 +236,18 @@
                 <div class="link-icon" style="background-image: url('https://cdn3.iconfinder.com/data/icons/under-construction-3/52/41-1024.png');"></div>
                 <div class="link-text">
                     <div class="link-title">GitBook</div>
-                    <div>Coming soon</div>
+                    <div class="link-desc">Documentation and write-ups</div>
+                    <span class="link-status">Coming soon</span>
                 </div>
                 <div class="link-arrow">→</div>
             </a>
 
             <!-- CryptoHack Link -->
-            <a href="https://cryptohack.org/user/t0xic" class="link" rel="noopener noreferrer">
+            <a href="https://cryptohack.org/user/t0xic" class="cool-link" rel="noopener noreferrer">
                 <div class="link-icon" style="background-image: url('cryhack.png');"></div>
                 <div class="link-text">
                     <div class="link-title">CryptoHack</div>
-                    <div>Cryptography skills</div>
+                    <div class="link-desc">Cryptography skills and challenges</div>
                 </div>
                 <div class="link-arrow">→</div>
             </a>
