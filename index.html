@@ -25,12 +25,17 @@
 
         .container {
             text-align: center;
+            max-width: 800px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(10, 150, 0, 0.5);
         }
 
         h1 {
             font-size: 5rem;
             margin-bottom: 10px;
-            color: rgba(10, 150, 0, 0.7); /* Darker translucent green */
+            color: rgba(10, 150, 0, 0.7);
             text-shadow: 0px 0px 10px rgba(10, 150, 0, 0.7), 0px 0px 20px rgba(10, 150, 0, 0.7);
             position: relative;
             display: inline-block;
@@ -44,63 +49,115 @@
             border-radius: 50%;
             overflow: hidden;
             margin: 20px auto;
-            border: 5px solid rgba(0, 150, 0, 0.5); /* More transparent green border */
+            border: 5px solid rgba(0, 150, 0, 0.5);
             position: relative;
+            box-shadow: 0 0 15px rgba(10, 150, 0, 0.7);
         }
 
         .profile-pic img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            animation: fadeInOut 3s infinite; /* Slight fade in and out */
+            animation: fadeInOut 3s infinite;
         }
 
         @keyframes fadeInOut {
             0%, 100% {
-                opacity: 0.2; /* More transparent */
+                opacity: 0.2;
             }
             50% {
-                opacity: 0.5; /* Less transparent */
+                opacity: 0.5;
             }
         }
 
         .discord-name {
             font-size: 1.5rem;
             margin-bottom: 20px;
-            color: rgba(200, 0, 200, 0.7); /* Darker translucent magenta */
+            color: rgba(200, 0, 200, 0.7);
             text-shadow: 0px 0px 10px rgba(200, 0, 200, 0.7), 0px 0px 20px rgba(200, 0, 200, 0.7);
         }
 
-        .link-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .hidden-link {
-            display: inline-block;
-            width: 60px;
-            height: 60px;
-            background-color: rgba(255, 255, 255, 0.5); /* Slightly transparent white */
-            border-radius: 50%;
-            text-align: center;
-            line-height: 60px;
-            color: rgba(40, 40, 40, 0.7); /* Darker translucent dark gray */
-            font-size: 1.2rem;
+        .cool-link {
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(10, 150, 0, 0.7);
+            padding: 15px;
+            border-radius: 10px;
             text-decoration: none;
+            transition: all 0.3s ease;
             position: relative;
+            overflow: hidden;
+        }
+
+        .cool-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(10, 150, 0, 0.9);
+            border-color: rgba(200, 0, 200, 0.7);
+        }
+
+        .cool-link:hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                         rgba(10, 150, 0, 0) 0%, 
+                         rgba(10, 150, 0, 0.2) 50%, 
+                         rgba(10, 150, 0, 0) 100%);
+            animation: glimmer 1.5s infinite;
+        }
+
+        @keyframes glimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .link-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+            flex-shrink: 0;
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            border: 4px solid rgba(0, 0, 0, 0.5); /* More transparent black border */
+            filter: drop-shadow(0 0 5px rgba(10, 150, 0, 0.7));
         }
 
-        .hidden-link:hover {
-            background-color: rgba(255, 255, 255, 0.5); /* Same color on hover */
-            color: rgba(40, 40, 40, 0.7);
+        .link-text {
+            flex-grow: 1;
+            text-align: left;
         }
 
-        
+        .link-title {
+            color: rgba(10, 150, 0, 0.9);
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .link-arrow {
+            color: rgba(200, 0, 200, 0.8);
+            font-size: 1.5rem;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .cool-link:hover .link-arrow {
+            transform: translateX(5px);
+        }
+
         @keyframes glitch-effect {
             0% {
                 clip-path: inset(0 0 0 0);
@@ -150,18 +207,46 @@
         <p class="discord-name"><i>Loxic#6170</i></p>
 
         
-        <div class="link-container">
-            <!-- TryHackMe Icon -->
-            <a href="https://tryhackme.com/p/0xT0x1c" class="hidden-link" style="background-image: url('TryHackMe.png');" rel="noopener noreferrer"></a>
+        <div class="links-grid">
+            <!-- TryHackMe Link -->
+            <a href="https://tryhackme.com/p/0xT0x1c" class="link" rel="noopener noreferrer">
+                <div class="link-icon" style="background-image: url('TryHackMe.png');"></div>
+                <div class="link-text">
+                    <div class="link-title">TryHackMe</div>
+                    <div>My challenge progress</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
             
-            <!-- HackTheBox Icon -->
-            <a href="https://app.hackthebox.com/profile/2074212" class="hidden-link" style="background-image: url('HTB.png');" rel="noopener noreferrer"></a>
+            <!-- HackTheBox Link -->
+            <a href="https://app.hackthebox.com/profile/2074212" class="link" rel="noopener noreferrer">
+                <div class="link-icon" style="background-image: url('HTB.png');"></div>
+                <div class="link-text">
+                    <div class="link-title">HackTheBox</div>
+                    <div>My hacking profile</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
             
-            <!-- GitBook Icon -->
-            <a href="" class="hidden-link" style="background-image: url('https://cdn3.iconfinder.com/data/icons/under-construction-3/52/41-1024.png');" rel="noopener noreferrer"></a>
+            <!-- GitBook Link -->
+            <a href="" class="cool-link" rel="noopener noreferrer">
+                <div class="link-icon" style="background-image: url('https://cdn3.iconfinder.com/data/icons/under-construction-3/52/41-1024.png');"></div>
+                <div class="link-text">
+                    <div class="link-title">GitBook</div>
+                    <div>Coming soon</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
 
-            <!-- CryptoHack Icon -->
-            <a href="https://cryptohack.org/user/t0xic" class="hidden-link" style="background-image: url('cryhack.png');" rel="noopener noreferrer"></a>
+            <!-- CryptoHack Link -->
+            <a href="https://cryptohack.org/user/t0xic" class="link" rel="noopener noreferrer">
+                <div class="link-icon" style="background-image: url('cryhack.png');"></div>
+                <div class="link-text">
+                    <div class="link-title">CryptoHack</div>
+                    <div>Cryptography skills</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
         </div>
     </div>
 
