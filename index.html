@@ -77,16 +77,16 @@
             text-shadow: 0px 0px 10px rgba(200, 0, 200, 0.7), 0px 0px 20px rgba(200, 0, 200, 0.7);
         }
 
-        .links-container {
-            display: flex;
-            flex-direction: column;
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 15px;
             margin-top: 30px;
-            max-width: 400px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        .cool-link {
+        .link {
             display: flex;
             align-items: center;
             background-color: rgba(0, 0, 0, 0.7);
@@ -99,17 +99,17 @@
             overflow: hidden;
         }
 
-        .cool-link:hover {
+        .link:hover {
             background-color: rgba(10, 150, 0, 0.2);
             border-color: rgba(10, 150, 0, 0.5);
             transform: translateX(5px);
         }
 
-        .cool-link:hover .link-icon {
+        .link:hover .icon {
             transform: rotate(5deg) scale(1.1);
         }
 
-        .link-icon {
+        .icon {
             width: 35px;
             height: 35px;
             margin-right: 15px;
@@ -121,34 +121,24 @@
             transition: transform 0.3s ease;
         }
 
-        .link-text {
+        .text {
             flex-grow: 1;
             text-align: left;
         }
 
-        .link-title {
+        .title {
             color: rgba(10, 150, 0, 0.9);
             font-size: 1.1rem;
             font-weight: bold;
             margin-bottom: 5px;
         }
 
-        .link-desc {
+        .desc {
             color: rgba(200, 200, 200, 0.7);
             font-size: 0.9rem;
         }
 
-        .link-status {
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            color: rgba(200, 200, 200, 0.9);
-            background-color: rgba(10, 150, 0, 0.3);
-            margin-left: 10px;
-        }
-
-        .link-arrow {
+        .arrow {
             color: rgba(200, 0, 200, 0.8);
             font-size: 1.5rem;
             margin-left: 10px;
@@ -156,7 +146,7 @@
             transition: all 0.3s ease;
         }
 
-        .cool-link:hover .link-arrow {
+        .link:hover .arrow {
             opacity: 1;
             transform: translateX(3px);
         }
@@ -204,55 +194,57 @@
         </div>
 
         <!-- Name -->
-        <h1>T0xic</h1>
+        <h1>0xT0xíc</h1>
 
         <!-- Discord Name -->
-        <p class="discord-name"><i>Loxic#6170</i></p>
+        <p class="discord-name"><i>Loxic6170</i></p>
 
-        <!-- Links in GitBook style -->
-        <div class="links-container">
+        <!-- Links in 2x2 grid -->
+        <div class="links-grid">
             <!-- TryHackMe Link -->
-            <a href="https://tryhackme.com/p/0xT0x1c" class="cool-link" rel="noopener noreferrer">
-                <div class="link-icon" style="background-image: url('TryHackMe.png');"></div>
-                <div class="link-text">
-                    <div class="link-title">TryHackMe</div>
-                    <div class="link-desc">My challenge progress and rankings</div>
+            <a href="https://tryhackme.com/p/0xT0x1c" class="link" rel="noopener noreferrer">
+                <div class="icon" style="background-image: url('TryHackMe.png');"></div>
+                <div class="text">
+                    <div class="title">TryHackMe</div>
+                    <div class="desc">My TryHackMe Profile</div>
                 </div>
-                <div class="link-arrow">→</div>
+                <div class="arrow">→</div>
             </a>
             
             <!-- HackTheBox Link -->
-            <a href="https://app.hackthebox.com/profile/2074212" class="cool-link" rel="noopener noreferrer">
-                <div class="link-icon" style="background-image: url('HTB.png');"></div>
-                <div class="link-text">
-                    <div class="link-title">HackTheBox</div>
-                    <div class="link-desc">My penetration testing profile</div>
+            <a href="https://app.hackthebox.com/profile/2074212" class="link" rel="noopener noreferrer">
+                <div class="icon" style="background-image: url('HTB.png');"></div>
+                <div class="text">
+                    <div class="title">HackTheBox</div>
+                    <div class="desc">My HackTheBox Profile</div>
                 </div>
-                <div class="link-arrow">→</div>
+                <div class="arrow">→</div>
             </a>
             
-            <!-- GitBook Link -->
-            <a href="" class="cool-link" rel="noopener noreferrer">
-                <div class="link-icon" style="background-image: url('https://cdn3.iconfinder.com/data/icons/under-construction-3/52/41-1024.png');"></div>
-                <div class="link-text">
-                    <div class="link-title">GitBook</div>
-                    <div class="link-desc">Documentation and write-ups</div>
-                    <span class="link-status">Coming soon</span>
+            <!-- Blogs Link -->
+            <a href="" class="link" rel="noopener noreferrer">
+                <div class="icon" style="background-image: url('https://cdn3.iconfinder.com/data/icons/under-construction-3/52/41-1024.png');"></div>
+                <div class="text">
+                    <div class="title">Blogs</div>
+                    <div class="desc">Documentation and write-ups</div>
                 </div>
-                <div class="link-arrow">→</div>
+                <div class="arrow">→</div>
             </a>
 
             <!-- CryptoHack Link -->
-            <a href="https://cryptohack.org/user/t0xic" class="cool-link" rel="noopener noreferrer">
-                <div class="link-icon" style="background-image: url('cryhack.png');"></div>
-                <div class="link-text">
-                    <div class="link-title">CryptoHack</div>
-                    <div class="link-desc">Cryptography skills and challenges</div>
+            <a href="https://cryptohack.org/user/t0xic" class="link" rel="noopener noreferrer">
+                <div class="icon" style="background-image: url('cryhack.png');"></div>
+                <div class="text">
+                    <div class="title">pwn.college</div>
+                    <div class="desc">My Pwn skills</div>
                 </div>
-                <div class="link-arrow">→</div>
+                <div class="arrow">→</div>
             </a>
         </div>
     </div>
+
+</body>
+</html>
 
 </body>
 </html>
