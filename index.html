@@ -86,6 +86,21 @@
             margin: 0 auto;
         }
 
+        .center-link {
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(10, 150, 0, 0);
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            max-width: 300px;
+            margin: 15px auto 0;
+        }
+
         .link {
             display: flex;
             align-items: center;
@@ -99,13 +114,13 @@
             overflow: hidden;
         }
 
-        .link:hover {
+        .link:hover, .center-link:hover {
             background-color: rgba(10, 150, 0, 0.2);
             border-color: rgba(10, 150, 0, 0.5);
             transform: translateX(5px);
         }
 
-        .link:hover .icon {
+        .link:hover .icon, .center-link:hover .icon {
             transform: rotate(5deg) scale(1.1);
         }
 
@@ -146,7 +161,7 @@
             transition: all 0.3s ease;
         }
 
-        .link:hover .arrow {
+        .link:hover .arrow, .center-link:hover .arrow {
             opacity: 1;
             transform: translateX(3px);
         }
@@ -241,10 +256,17 @@
                 <div class="arrow">→</div>
             </a>
         </div>
-    </div>
 
-</body>
-</html>
+        <!-- Center Link under the grid -->
+        <a href="https://app.hackingclub.com/profile/user/26998" class="center-link" rel="noopener noreferrer">
+            <div class="icon" style="background-image: url('https://www.gifcen.com/wp-content/uploads/2023/06/hacker-gif-8.gif');"></div>
+            <div class="text">
+                <div class="title">HackingClub</div>
+                <div class="desc">My HackingClub Profile</div>
+            </div>
+            <div class="arrow">→</div>
+        </a>
+    </div>
 
 </body>
 </html>
